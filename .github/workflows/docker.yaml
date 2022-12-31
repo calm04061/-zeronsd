@@ -69,7 +69,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: zeronsd
-          file: Dockerfile.alpine
+          file: zeronsd/Dockerfile.alpine
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}-amd64
           labels: ${{ steps.meta.outputs.labels }}
@@ -173,7 +173,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: zeronsd
-          file: Dockerfile.alpine
+          file: zeronsd/Dockerfile.alpine
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}-arm-v7
           labels: ${{ steps.meta.outputs.labels }}
