@@ -67,7 +67,7 @@ jobs:
         id: build-and-push
         uses: docker/build-push-action@v3
         with:
-          context: zeronsd
+          context: zeronsd/.
           file: Dockerfile.alpine
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}-amd64
