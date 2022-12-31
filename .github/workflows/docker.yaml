@@ -67,7 +67,7 @@ jobs:
         id: build-and-push
         uses: docker/build-push-action@v3
         with:
-          context: zeronsd/.
+          context: zeronsd
           file: Dockerfile.alpine
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}-amd64
@@ -112,7 +112,8 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-
+      - name: cc
+        run: "ls -l"
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
       - name: Build and push Docker image
